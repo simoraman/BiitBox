@@ -2,8 +2,10 @@ package com.example.biitbox;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+import android.view.View.OnLongClickListener;
+import android.view.View.OnTouchListener;
 
 public class FullscreenActivity extends Activity {
 	
@@ -36,6 +38,26 @@ public class FullscreenActivity extends Activity {
         soundService.loadSounds();
 		       
         setContentView(R.layout.activity_fullscreen);
+        
+        View button1 = this.findViewById(R.id.button1);
+		button1.setLongClickable(true);
+        button1.setOnLongClickListener(new OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View arg0) {
+				soundService.startRecording();
+				return true;
+			}
+        });
+        button1.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View arg0, MotionEvent event) {
+				if (event.getAction() == MotionEvent.ACTION_UP) {
+					soundService.stopRecording();
+               }
+				return false;
+			}
+		});
         
         disableButtonSounds();
     }
