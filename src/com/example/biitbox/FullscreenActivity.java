@@ -3,6 +3,7 @@ package com.example.biitbox;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class FullscreenActivity extends Activity {
 	
@@ -36,7 +37,14 @@ public class FullscreenActivity extends Activity {
 		       
         setContentView(R.layout.activity_fullscreen);
         
+        disableButtonSounds();
     }
+
+	private void disableButtonSounds() {
+		this.findViewById(R.id.button1).setSoundEffectsEnabled(false);
+        this.findViewById(R.id.button2).setSoundEffectsEnabled(false);
+        this.findViewById(R.id.button3).setSoundEffectsEnabled(false);
+	}
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

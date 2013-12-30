@@ -14,7 +14,7 @@ public class SoundService {
 	List<Integer> sounds = new ArrayList<Integer>();
 	List<Integer> ints = new ArrayList<Integer>();
 	public void loadSounds() {
-		soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+		soundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
 		File root = new File(Environment.getExternalStorageDirectory(), "");
 		for(int i = 0; i < 3; i++){
 			int index = i+1;
